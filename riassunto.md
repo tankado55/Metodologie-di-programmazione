@@ -15,3 +15,18 @@ Le definizioni in diverse unità di traduzione devono essere identiche.
 ### 12.1.8 Variabili locali
 
 Una variabile locale **static** consente alla funzione di conservare informazioni tra le chiamate senza introdurre una variabile globale soggetta ad accesso e possibile corruzione da parte di altre funzioni.
+
+### 12.2.1 Argomenti riferimento
+
+Le funzioni che modificano argomenti chiamata per riferimento possono rendere di difficile lettura i programmi, l'argomento può essere dichiarat **const** per indicare che il riferimento è utilizzato solo per motivi di efficienza.
+
+Dichiarando **const** un argomento **puntatore** si indica al lettore che il valore di un oggetto a cui punta tale argomento non è modificato dalla funzione.
+
+Il passaggio per riferimento è un passaggio **lvalue**, se si vuole passare per rvalue: &&. L'uso più ovvio dei riferimento rvalue è la definizione dei costruttori di spostamento e assegnamenti di spostamento.
+
+Regole empiriche per scegliere tra i vari modi:
+1. Usare passaggio per valore per piccoli oggetti.
+2. Usare passaggio per riferimento **const** per passare grandi valori che non bisogna modificare.
+3. Restituire un risulltato come valore **return** anzichè modificare un oggetto attraverso un orgomento.
+4. Usare riferimenti rvalue per implementare spostamento e inoltro (23.5.2.1).
+5. Passare un puntatore se "nessun oggetto" è un alternativa valida. 
