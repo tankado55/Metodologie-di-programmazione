@@ -46,27 +46,27 @@ struct Matrix {
 ```c++
 void foo() { 
   A* a1 = new A(1); 
-  try{
+  try{   //protettore a1
     A* a2 = new A(2); 
-    try{
+    try{   //protettore a2
       job1(a1, a2);
       A* a3 = new A(3);
-      try{
+      try{   //protettore a3
 	job2(a1, a3); 	
 	delete a3;
       }catch (...){
 	delete a3;
 	throw;
-      }
+      }  //fine protettore a3
       delete a2; 
       delete a1;
     } catch (...) {
       delete a2;
       throw;
-    }	
+    }   //fine protettore di a2
   } catch (...) {
     delete a1;
     throw;
-  }
+  }   //fine protettore di a3
 }
 ```
