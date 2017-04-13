@@ -49,7 +49,7 @@ T t;
 S s;
 ```
 
-Nell'unica unità di traduzione che abbiamo la struct S viene definita 2 volte, quindi avremo un errore di compilazione.
+Nell'unica unità di traduzione che avremo la struct S viene definita 2 volte, quindi avremo un errore di compilazione.
 
 ## Esercizio 3
 
@@ -107,7 +107,7 @@ Il problema nasce se qualcosa va storto dopo l'acquisizione delle risorse
 eccezione potrebbe far si che si esca in modo eccezionale dalla funzione senza che
 vengano rilasciate le risorse.
 
-###Soluzione 1:
+### Soluzione 1:
 
 ```c++
 void foo() {
