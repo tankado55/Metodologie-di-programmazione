@@ -1,3 +1,13 @@
+# 6 Tipi e dichiarazioni
+
+Gli **interi** possoo essere implicitamente convertiti in valori **bool* e viceversa.
+
+Un puntatore può essere convertito implicitamente in un  **bool** (nullptr=false).
+
+Il fatto che un **char** sia considerato signed o unsigned dipende dall'implementazione.
+I 3 tipi char sono distinti, quindi non è possibile mescolare puntatori a tipi char diversi (niente conversioni implicite).
+Le variabili dei 3 tipi char possono essere liberamente assegnate reciprocamente.
+
 # 12 Funzioni
 
 ### 12.1.6 Funzioni constexpr
