@@ -8,22 +8,22 @@ C= {2,3}, U= {2,3}, M={2}
 B
 C= {2,3}, U= {2,3}, M={2}
 
-C
+(C)
 C= {2,3}, U= {3}, M={3}
 
-D
+(D)
 C= {2,3}, U= {3}, M={3} // errore di compilazione, invalid conversion da const char* a char*
 
-E
+(E)
 C= {1}, U= {1}, M={1} //match perfetto???
 
-F
+(F)
 C= {5,8}, U= {8}, M={8}  //vede la 5 per l'ADL
 
-G
+(G)
 C= {8}, U= {}, M={}  //nessuna utilizzabile
 
-H
+(H)
 C= {7}, U= {7}, M={7}
 
 ## Esercizio 2
@@ -42,7 +42,7 @@ C= {7}, U= {7}, M={7}
 
 (g) Conversione standard
 
-(h)
+(h) corrispondenza esatta //conversione di qualificazione da non-const a const
 
 (i) Corrispondenza esatta
 
@@ -66,6 +66,11 @@ struct Matrix {
 ```
 
 ## Esercizio 6
+
+(a) In assenza di eccezioni le risorse acquisite non verranno mai rilasciate.
+
+(b) In presenza di eccezioni la funzione non permette al chiamante la gestione
+in quanto le eccezioni non vegono ri lanciate (non è neutrale rispetto alle eccezioni)
 
 ```c++
 void foo() { 
