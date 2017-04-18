@@ -2,6 +2,30 @@
 
 ## Esercizio 1
 
+A
+C= {2,3}, U= {2,3}, M={2}
+
+B
+C= {2,3}, U= {2,3}, M={2}
+
+C
+C= {2,3}, U= {3}, M={3}
+
+D
+C= {2,3}, U= {3}, M={3} // errore di compilazione, invalid conversion da const char* a char*
+
+E
+C= {1}, U= {1}, M={1} //match perfetto???
+
+F
+C= {5,8}, U= {8}, M={8}  //vede la 5 per l'ADL
+
+G
+C= {8}, U= {}, M={}  //nessuna utilizzabile
+
+H
+C= {7}, U= {7}, M={7}
+
 ## Esercizio 2
 
 (a) Conversione standard
