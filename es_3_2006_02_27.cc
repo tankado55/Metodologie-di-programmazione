@@ -53,8 +53,8 @@ class Fax : public FaxVirtual {
 private:
   FaxModem_AllStars* allstars;  
 public:
-  Fax(FaxModem_AllStars& fmas) : allstars(&fmas) {}   //costruttore
-    
+  explicit Fax(FaxModem_AllStars& fmas) : allstars(&fmas) {}   //costruttore
+                 // marchiato explicit per impedire un inizializzazione con copia (=)
   void fax_function_1() {
     allstars->fax_function_1();
   }
@@ -75,7 +75,7 @@ class Modem : public ModemVirtual {
 private:
   FaxModem_AllStars* allstars;
 public:
-  Modem(FaxModem_AllStars& fmas) : allstars(&fmas) {}  //costruttore
+  explicit Modem(FaxModem_AllStars& fmas) : allstars(&fmas) {}  //costruttore
   
   void modem_function_1(const char& c) {
     allstars->modem_function_1(c);
