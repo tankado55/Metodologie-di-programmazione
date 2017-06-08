@@ -16,44 +16,44 @@ public:
 /*_________________________________________________*/
 
 
-// File FaxVirtual.hh  // Classe astratta
+// File Fax.hh  // Classe astratta
 
-class FaxVirtual {
+class Fax {
 private:
   // ...
 public:
-  virtual void function_1() = 0;
-  virtual void function_2(const char*) = 0;
-  virtual void function_3(int) = 0;
+  virtual void fax_function_1() = 0;
+  virtual void fax_function_2(const char*) = 0;
+  virtual void fax_function_3(int) = 0;
   
-  virtual ~FaxVirtual() {}
+  virtual ~Fax() {}
 };
 /*_________________________________________________*/
 
 
-// File ModemVirtual.hh  // Classe astratta
+// File Modem.hh  // Classe astratta
 
-class ModemVirtual {
+class Modem {
 private:
   // ...
 public:
-  virtual void function_1(const char*) = 0;
-  virtual void function_2() = 0;
-  virtual void function_3(unsigned int) = 0;
+  virtual void modem_function_1(const char*) = 0;
+  virtual void modem_function_2() = 0;
+  virtual void modem_function_3(unsigned int) = 0;
   
-  virtual ~ModemVirtual() {}
+  virtual ~Modem() {}
 };
 /*_________________________________________________*/
 
-// File Fax.hh
+// File FaxAdapter.hh
 
-#include "FaxVirtual.hh"
+#include "Fax.hh"
 #include "FaxModem.hh"            //inserire guardie
-class Fax : public FaxVirtual {
+class FaxAdapter : public Fax {
 private:
   FaxModem_AllStars* allstars;  
 public:
-  explicit Fax(FaxModem_AllStars& fmas) : allstars(&fmas) {}   //costruttore
+  explicit FaxAdapter(FaxModem_AllStars& fmas) : allstars(&fmas) {}   //costruttore
                  // marchiato explicit per impedire un inizializzazione con copia (=)
   void fax_function_1() {
     allstars->fax_function_1();
@@ -67,15 +67,15 @@ public:
 };
 /*_________________________________________________*/
 
-// File Modem.hh
+// File ModemAdapter.hh
 
-#include "ModemVirtual.hh"
+#include "Modem.hh"
 #include "FaxModem.hh"         //inserire guardie
-class Modem : public ModemVirtual {
+class ModemAdapter : public Modem {
 private:
   FaxModem_AllStars* allstars;
 public:
-  explicit Modem(FaxModem_AllStars& fmas) : allstars(&fmas) {}  //costruttore
+  explicit ModemAdapter(FaxModem_AllStars& fmas) : allstars(&fmas) {}  //costruttore
   
   void modem_function_1(const char& c) {
     allstars->modem_function_1(c);
@@ -89,24 +89,59 @@ public:
 };
 /*_________________________________________________*/
 
+// File FaxModemAdapter.hh
+
+#include "Modem.hh"
+#include "Fax.hh"
+#include "FaxModem.hh"
+
+class FaxModemAdapter : public Fax, public Modem {
+private:
+  FaxModem_AllStars* allstars;
+public:
+  explicit FaxModemAdapter(FaxModem_AllStars& fmas) : allstars(&fmas) {}
+
+  void fax_function_1() {
+    allstars->fax_function_1();
+  }
+  void fax_function_2(const char& c) {
+    allstars->fax_function_2(c);
+  }
+  void fax_function_3(int i) {
+    allstars->fax_function_3(i);
+  }
+  void modem_function_1(const char& c) {
+    allstars->modem_function_1(c);
+  }
+  void modem_function_2() {
+    allstars->modem_function_2();
+  }
+  void modem_function_3(unsigned int ui) {
+    allstars->modem_function_3(ui);
+  }
+}
+
+
+/*_________________________________________________*/
+
 // File User.cc
 
-#include "FaxVirtual"
-#include "ModemVirtual"
+#include "Fax"
+#include "Modem"
 
-void user_function_1(FaxVirtual& f) {
+void user_function_1(Fax& f) {
   f.fax_function_1();
   // ...
   f.fax_function_3(12);
 }
 
-void user_function_2(ModemVirtual& m, const char* command) {
+void user_function_2(Modem& m, const char* command) {
   m.modem_function_1(command);
   // ...
   m.modem_function_3(1024);
 }
 
-void user_function_3(FaxVirtual& f, ModemVirtual& m) {
+void user_function_3(Fax& f, Modem& m) {
   f.fax_function_2("+390521906950");
   // ...
   m.modem_function_2();
