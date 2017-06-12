@@ -89,7 +89,7 @@ find_first_of(Iter1 first1, Iter1 last1, Iter2 first2, Iter2 last2, BinPred comp
 
 ###### Indicare, motivando la risposta, la più ampia categoria di iteratori utilizzabile per ognuna delle due sequenze di input.
 
-Sono utilizzabili tutte le categorie di iteratori tranne quella degli output iterators.
+Per la prima sequenza, la più ampia categoria utilizzabile è quella degli input iterators in quanto abbiamo bisogno di scorrere la sequenza una sola volta e solo in una direzione, per la seconda sequenza, la più ampia categoria è quella dei forward iterators perchè bisogna leggere più volte la sequenza, con questa categoria gli iteratori non vengono invalidati dopo averli letti, mentre con gli input iterators sarebbero stati invalidati dopo la prima lettura.
 
 
 ## Esercizio 6
