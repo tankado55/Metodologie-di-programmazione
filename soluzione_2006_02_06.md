@@ -1,4 +1,4 @@
-# Prova 2006_02_06
+# Soluzione prova 2006_02_06
 
 ## Esercizio 1
 
@@ -72,6 +72,7 @@ C= {6}, U= {6}, M={6}
 ## Esercizio 3
 ## Esercizio 4
 ## Esercizio 5
+
 ```c++
 template <typename Iter1, typename Iter2, typename BinPred>
 
@@ -86,8 +87,7 @@ find_first_of(Iter1 first1, Iter1 last1, Iter2 first2, Iter2 last2, BinPred comp
 }
 ```
 
-###### Indicare, motivando la risposta, la più ampia categoria di iteratori
-utilizzabile per ognuna delle due sequenze di input.
+###### Indicare, motivando la risposta, la più ampia categoria di iteratori utilizzabile per ognuna delle due sequenze di input.
 
 Sono utilizzabili tutte le categorie di iteratori tranne quella degli output iterators.
 
