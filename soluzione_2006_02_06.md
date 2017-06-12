@@ -68,7 +68,38 @@ C= {3}, U= {}, M={} // nessuna utilizzabile
 **(k)**
 C= {6}, U= {6}, M={6}
 
+
+
+
 ## Esercizio 2
+
+* Constructor B::B()
+* Constructor A::A()
+* Constructor D::D()
+* === 1 ===
+* D::f(int)
+* A::g(double)
+* B::f(int)
+* D::g(int)
+* === 2 ===
+* D::f(int)
+* D::g(int)
+* A::g(double)
+* === 3 ===
+* A::g(double)
+* B::f(int)
+* D::g(int)
+Destructor A::~A()
+Destructor B::~B()
+* === 4 ===
+* Destructor D::~D()
+* Destructor A::~A()
+* Destructor B::~B()
+
+
+
+
+
 ## Esercizio 3
 ## Esercizio 4
 ## Esercizio 5
