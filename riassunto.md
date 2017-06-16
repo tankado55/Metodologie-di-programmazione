@@ -1,6 +1,6 @@
 # 6 Tipi e dichiarazioni
 
-Gli **interi** possoo essere implicitamente convertiti in valori **bool* e viceversa.
+Gli **interi** possono essere implicitamente convertiti in valori **bool** e viceversa.
 
 Un puntatore può essere convertito implicitamente in un  **bool** (nullptr=false).
 
