@@ -28,3 +28,26 @@ Fannno entrambe type decay da puntatore ad array, si da preferenza alle funzioni
 * Bear::print
 * Panda::print //perchè quella di ZooAnimal è virtual
 * Endangered::print
+
+## Esercizio 3
+
+Esercizio 3:
+Le variabili static non sono associate agli oggetti di una classe, quindi bisogna ripetere le dichiarazioni fuori dalle classi in modo che vengano instanziate e potranno essere utilizzate anche senza che nessun oggetto venga istanziato.
+
+Occorre ripetere le dichiarazioni delle variabili static fuori dalle dichiarazioni delle classi perchè le variabili static non sono associate agli oggetti della classe:
+
+```c++
+// File costante.cc
+double
+Costante::pi = 3.1415;
+double
+Costante::e = 2.72;
+
+//file angolo.cc
+double
+Angolo::retto = Costante::pi / 2;
+double
+Angolo::piatto = Costante::pi;
+double
+Angolo::giro = Costante::pi * 2;
+```
