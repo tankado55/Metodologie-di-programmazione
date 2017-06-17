@@ -24,7 +24,7 @@ public:
 
 class Paga_di_piu : public Scheda_Prepagata {
 private:
-  virtual void fai_la_cosa_giusta_1(const Chiamata& call);
+  void fai_la_cosa_giusta_1(const Chiamata& call);
 
 public:
   std::string tipo_scheda() const {
