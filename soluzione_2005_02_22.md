@@ -11,7 +11,7 @@ Fannno entrambe type decay da puntatore ad array, si da preferenza alle funzioni
 * **6** C = {1,5} U = {5} M = {5}
 * **7** C = {1,4} U = {4} M = {4}
 * **8** C = {1,6} U = {6} M = {6}
-* **9** C = {7,8} U = {7} M = {7}
+* **9** C = {7} U = {7} M = {7}
 * **10** C = {7,8} U = {7,8} M = {8}
 * **11** C = {7} U = {7} M = {7}
 * **12** C = {7,8} U = {7,8} M = {}  Ambigua
